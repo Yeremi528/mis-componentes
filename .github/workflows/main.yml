@@ -1,0 +1,37 @@
+# Esto es un basic workflok que te ayudara a empezar en los actions
+
+name: Semantic Release
+
+# Controles cuando workflow corra
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+# Un workflow corre es subudo de uno o mas trabajos corriendo paralelamente o secuencialmente
+jobs:
+  # Este workflow contiene un solo trabajo llamado "build"
+  build:
+    # El tipo de corrredor que hara correr nuestro trabajo
+    runs-on: ubuntu-latest
+
+    # Pasos representan la secuencia de tareas que seran ejecutadas como parte del trabajo
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.17
+        # Al agregar esto podemos ahora empezar a usar nuestras dependencias
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build App
+        run: npm run build
+      
+      - name: Semantic Release
+        env:
+          GITHUB_TOKEN: ${{  secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{  secrets.NPM_TOKEN  }}
+        run: npx semantic-release

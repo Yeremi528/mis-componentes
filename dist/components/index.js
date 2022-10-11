@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MiTitulo = exports.MiImagen = exports.MiCarta = exports.MiParrafo = void 0;
+var MiParrafo_1 = require("./MiParrafo");
+Object.defineProperty(exports, "MiParrafo", { enumerable: true, get: function () { return MiParrafo_1.MiParrafo; } });
+var MiCarta_1 = require("./MiCarta");
+Object.defineProperty(exports, "MiCarta", { enumerable: true, get: function () { return MiCarta_1.MiCarta; } });
+var MiImagen_1 = require("./MiImagen");
+Object.defineProperty(exports, "MiImagen", { enumerable: true, get: function () { return MiImagen_1.MiImagen; } });
+var MiTitulo_1 = require("./MiTitulo");
+Object.defineProperty(exports, "MiTitulo", { enumerable: true, get: function () { return MiTitulo_1.MiTitulo; } });
